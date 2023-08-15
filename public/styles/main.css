@@ -7,6 +7,18 @@ body {
     margin-top: auto;
 }
 
+#header{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+#header h1{
+    padding-top: 2rem;
+}
+#header h2{
+    padding-top: 1rem;
+}
+
+
 svg.bi-icon-sm {
     height: 8px !important;
     width: 8px !important;
