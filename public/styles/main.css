@@ -18,6 +18,12 @@ body {
     padding-top: 1rem;
 }
 
+.col-4{
+    text-align: center;
+    border: 2px solid black;
+    /* border-radius: 10px 0px 0px 10px; */
+}
+
 
 svg.bi-icon-sm {
     height: 8px !important;
