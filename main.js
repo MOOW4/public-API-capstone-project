@@ -1,6 +1,8 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import { getCurrentSeason } from "./utils/currentSeason.js";
+
 
 const app = express();
 const port = 3000;
@@ -15,7 +17,8 @@ app.get("/", async (req, res) => {
         const result = await axios.get(API_URL_TOP);
         const animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
         console.log(animeData[0]);
-        res.render("index.ejs");
+		//console.log(getCurrentSeason());
+        res.render("index.ejs", {season: getCurrentSeason()});
     } catch (error){
         if (error.response) {
             //* The error has a response property, so we can access the data
