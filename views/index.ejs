@@ -2,12 +2,17 @@
 
 <div class="container" id="ratings" style="margin-top: 2rem;">
     <% if(locals.animeData) { %>
-    <% for(let i = 0; i < 10; i++) { %>
-    <div class="row">
-        <div class="col-4 offset-1"> <%= animeData[i].title%> </div>
-        <div class="col-4 offset-2"> <%= animeData[i].score%> </div>
-    </div>
-    <% } %>
+        <div class="row" id="legend">
+            <div class="col-8 offset-1"> Anime Title </div>
+            <div class="col-1"> Score </div>
+        </div>
+        <% for(let i = 0; i < 15; i++) { %>
+            <div class="row">
+                <div class="col-1"> <b><%= i+1%>.</b> </div>
+                <div class="col-8"> <a href="" class="link"> <%= animeData[i].title%> </a></div>
+                <div class="col-1"> <%= animeData[i].score%> </div>
+            </div>
+        <% } %>
     <% } %>
 </div>
 
