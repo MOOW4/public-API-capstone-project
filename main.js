@@ -13,11 +13,17 @@ app.get("/", async (req, res) => {
     /* res.render("index.ejs"); */
     try{
         const result = await axios.get(API_URL_TOP);
-        console.log(result.data.data[0]); //! WTF IS THIS
-        //console.log(result.pegination.last_visible_page);
+        const animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
+        console.log(animeData[0]);
         res.render("index.ejs");
     } catch (error){
-        res.render("index.ejs");/*  */
+        if (error.response) {
+            //* The error has a response property, so we can access the data
+            res.render("index.ejs", { error: JSON.stringify(error.response.data) });
+        } else {
+            //! The error does not have a response property (e.g., network error)
+            res.render("index.ejs", { error: JSON.stringify(error.message) });
+        }
     }
 
 });
