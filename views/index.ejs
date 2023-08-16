@@ -1,32 +1,18 @@
 <%- include("partials/header.ejs") %>
 
-<div class="container" id="Ratingings" style="margin-top: 2rem;">
+<div class="container" id="ratings" style="margin-top: 2rem;">
+    <% if(locals.animeData) { %>
+    <% for(let i = 0; i < 10; i++) { %>
     <div class="row">
-        <div class="col-4 offset-1">Anime Name</div>
-        <div class="col-4 offset-2">Rating</div>
+        <div class="col-4 offset-1"> <%= animeData[i].title%> </div>
+        <div class="col-4 offset-2"> <%= animeData[i].score%> </div>
     </div>
-    <div class="row">
-        <div class="col-4 offset-1">Anime Name</div>
-        <div class="col-4 offset-2">Rating</div>
-    </div>
-    <div class="row">
-        <div class="col-4 offset-1">Anime Name</div>
-        <div class="col-4 offset-2">Rating</div>
-    </div>
-    <div class="row">
-        <div class="col-4 offset-1">Anime Name</div>
-        <div class="col-4 offset-2">Rating</div>
-    </div>
-    <div class="row">
-        <div class="col-4 offset-1">Anime Name</div>
-        <div class="col-4 offset-2">Rating</div>
-    </div>
-
-
+    <% } %>
+    <% } %>
 </div>
 
-
-
-
+<% if(locals.error) { %>
+<div id="errorMessage"> <%= error%> </div>
+<% } %>
 
 <%- include("partials/footer.ejs") %>

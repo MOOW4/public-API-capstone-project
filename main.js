@@ -18,7 +18,7 @@ app.get("/", async (req, res) => {
         const animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
         console.log(animeData[0]);
 		//console.log(getCurrentSeason());
-        res.render("index.ejs", {season: getCurrentSeason()});
+        res.render("index.ejs", {season: getCurrentSeason(), animeData: animeData});
     } catch (error){
         if (error.response) {
             //* The error has a response property, so we can access the data
