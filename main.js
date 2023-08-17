@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
     try{
         const result = await axios.get(API_URL_TOP);
         const animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
-        console.log(animeData[0]);
+        //console.log(animeData[0]);
 		//console.log(getCurrentSeason());
         res.render("index.ejs", {season: getCurrentSeason(), animeData: animeData});
     } catch (error){
@@ -31,6 +31,12 @@ app.get("/", async (req, res) => {
 
 });
 
+app.get("/anime/:mal_id", (req, res) => {
+    console.log(req.params.mal_id);
+    res.redirect("/");
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
