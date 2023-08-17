@@ -60,6 +60,22 @@ a{
 }
 
 
+#mainInfo{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 2fr;
+}
+
+
+
+
+
+
+
+
+
+
+
 svg.bi-icon-sm {
     height: 8px !important;
     width: 8px !important;
@@ -73,7 +89,7 @@ svg.bi-icon-xl {
 
 /* COLORS */
 body{
-    background-color: #030005;
+    background-color: #030005; /* #030005;  #161616*/
     color: #eeccff !important;
 }
 
