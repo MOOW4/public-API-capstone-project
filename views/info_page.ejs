@@ -1,22 +1,41 @@
 <%- include("partials/header.ejs") %>
 
 <% if(locals.anime) { %>
-    <div class="container">    
-        <h4> <%= anime.title%> </h4>
-    </div>
 
     <div class="container" id="mainInfo" style="background-color: #202020; border-radius: 15px;">  
-        <div><img src=<%= anime.images.jpg.image_url%> alt=""></div>  
+        <div id="title">
+            <h2> <%= anime.title%> </h2> 
+            <h6> <%= anime.title_japanese%> </h6> 
+        </div>
+
+        <div id="poster-image">
+            <img src=<%= anime.images.jpg.image_url%> alt="">
+        </div>  
         <div id="anime-detail-header">
-            <div id="ratings">Ratings</div>
+            <div id="ratings-info">
+                <div class="ratings-item score-item"> Score: <b><%= anime.score%></b> </div>
+                <div class="ratings-item"> Ranked: <b><%= anime.rank%>#</b></div>
+                <div class="ratings-item">Populariy: <b><%= anime.popularity%>#</b></div>
+                <div class="ratings-item">Members: <b><%= anime.members%></b></div>
+            </div>
 
             <div id="trailer" class="embed-responsive">
                 <iframe class="embed-responsive-item" width="100%" height="100%" frameborder="0" allowfullscreen=""
-                src=<%= anime.trailer.embed_url%>>
+                src=<%= anime.trailer.embed_url%> >
                 </iframe> 
             </div>
 
-            <div id="stars">Stars</div>
+            <div id="stars">
+                <select class="select-stars">
+                    <option selected>Select ★</option>
+                    <option value="1">★</option>
+                    <option value="2">★★</option>
+                    <option value="3">★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="5">★★★★★</option>
+                </select>
+                <button class="btn btn-danger rating-button">Rate</button>
+            </div>
 
 
         </div>
@@ -43,8 +62,10 @@
             <div>Members: <%= anime.members%></div>
             <div>Favorites: <%= anime.favorites%></div>
         </div>
-        <div>
+        <div id="description">
+            <h5>Synopsis:</h5>
             <p><%= anime.synopsis%></p>
+            <h5>Background:</h5>
             <p><%= anime.background%></p>
         </div>
     </div>

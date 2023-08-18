@@ -63,7 +63,26 @@ a{
 #mainInfo{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: auto 1fr 2fr;
+    padding: 20px 10px;
+}
+
+#genre{
+    padding: 10px 0px;
+}
+#genre h5{
+    padding-top: 20px;
+}
+#description, #anime-detail-header{
+    padding-top: 20px;
+    padding-left: 40px;
+}
+
+#title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 #anime-detail-header {
@@ -72,12 +91,31 @@ a{
     grid-template-rows: 1fr 80px;
 }
 
+#ratings-info{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.score-item{
+    font-size: 1.7rem;
+}
+
+#stars{
+    font-size: 1.4rem;
+}
+
+.select-starts{
+    appearance: none;
+}
+
 #trailer {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 3;
-
 }
 
 svg.bi-icon-sm {
@@ -112,4 +150,41 @@ body{
 .nav-link:hover{
     font-weight: bold;
     color: #ec4441 !important;
+}
+.rating-button {
+    background-color: #ec4441;
+}
+h5, #title h2{
+    color: #ec4441;
+}
+
+
+@media only screen and (max-width: 750px) {
+    #mainInfo {
+        display: flex;
+        flex-direction: column;
+    }
+    #anime-detail-header {
+        display: flex;
+        flex-direction: column;
+    }
+    #trailer{
+        height: 240px;
+    }
+    #ratings-info{
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        padding-bottom: 20px;
+    }
+    #genre, #poster-image, #title{
+        padding-left: 40px;
+    }
+    #stars{
+        padding-top: 20px;
+    }
+    h5, #title h2{
+        font-size: 2rem;
+    }
 }
