@@ -66,15 +66,19 @@ a{
     grid-template-rows: 1fr 2fr;
 }
 
+#anime-detail-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 80px;
+}
 
+#trailer {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
 
-
-
-
-
-
-
-
+}
 
 svg.bi-icon-sm {
     height: 8px !important;
