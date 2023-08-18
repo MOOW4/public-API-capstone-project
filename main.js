@@ -31,7 +31,7 @@ app.get("/", async (req, res) => {
     try{
         const result = await axios.get(API_URL_TOP);
         animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
-        console.log(animeData[0]);
+        //console.log(animeData[0]);
 		//console.log(getCurrentSeason());
         res.render("index.ejs", {season: getCurrentSeason(), animeData: animeData});
     } catch (error){
