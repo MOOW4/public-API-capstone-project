@@ -27,7 +27,6 @@ function getNames(arr) {
 };
 
 app.get("/", async (req, res) => {
-    /* res.render("index.ejs"); */
     try{
         const result = await axios.get(API_URL_TOP);
         animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
@@ -68,17 +67,3 @@ app.get("/anime/:mal_id", (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
-
-/* if(anime.mal_id == req.params.mal_id){
-    let producers_str = "";
-    anime.producers.forEach((producer) => {
-        producers_str += producer.name;
-        producers_str += ", ";
-    });
-    producers_str = producers_str.slice(0, -2);
-    res.render("info_page.ejs", {season: getCurrentSeason(),
-        anime: anime,
-        producers: producers_str
-    });
-}
-}); */

@@ -23,6 +23,10 @@ a{
     padding-top: 1rem;
 }
 
+#search-options{
+    margin-top: 20px;
+}
+
 #ratings {
     padding: 0;
     padding-bottom: 10px;
@@ -151,7 +155,7 @@ body{
     font-weight: bold;
     color: #ec4441 !important;
 }
-.rating-button {
+.submit-button {
     background-color: #ec4441;
 }
 h5, #title h2{
