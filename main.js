@@ -22,7 +22,7 @@ function getNames(arr) {
         names_str += ", ";
     });
     names_str =  names_str.slice(0, -2);
-    console.log(names_str); 
+    //console.log(names_str); 
     return names_str;
 };
 

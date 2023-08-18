@@ -68,7 +68,7 @@ a{
 
 #anime-detail-header {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 420px;
     grid-template-rows: 1fr 80px;
 }
 
