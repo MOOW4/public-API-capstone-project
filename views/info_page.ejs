@@ -1,0 +1,53 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.anime) { %>
+    <div class="container">    
+        <h4> <%= anime.title%> </h4>
+    </div>
+
+    <div class="container" id="mainInfo" style="background-color: #202020; border-radius: 15px;">  
+        <div><img src=<%= anime.images.jpg.image_url%> alt=""></div>  
+        <div>
+            <div id="ratings_all">
+                <div>Ratings</div>
+                <div>Stars</div>
+            </div>
+            <div id="trailer">Trailer</div>
+        </div>
+
+        <div class="" id="genre">
+            <h5>Information</h5>
+            <div>Japanese Title: <%= anime.title_japanese%> </div>
+            <div>Type: <%= anime.type%></div>
+            <div>Episodes: <%= anime.episodes%></div>
+            <div>Status: <%= anime.status%></div>
+            <div>Aired: <%= anime.aired.string%></div>
+            <div>Broadcast: <%= anime.broadcast.string%></div>
+            <div>Producers: <%= producers%></div>
+            <div>Studios: <%= studios%></div>
+            <div>Genres: <%= genres%></div>
+            <div>Source: <%= anime.source%></div>
+            <div>Demographics: <%= demographics%></div>
+            <div>Duration: <%= anime.duration%></div>
+            <div>Rating: <%= anime.rating%></div>
+            <h5>Statistics</h5>
+            <div>Score: <%= anime.score%> by <%= anime.scored_by%> users</div>
+            <div>Ranked: <%= anime.rank%>#</div>
+            <div>Popularity: <%= anime.popularity%></div>
+            <div>Members: <%= anime.members%></div>
+            <div>Favorites: <%= anime.favorites%></div>
+        </div>
+        <div>
+            <p><%= anime.synopsis%></p>
+            <p><%= anime.background%></p>
+        </div>
+    </div>
+    
+    
+    
+    
+<% } else { %>
+    <h2>Nebavi Nesvici</h2>
+<% } %>
+
+<%- include("partials/footer.ejs") %>
