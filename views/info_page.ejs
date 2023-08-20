@@ -20,8 +20,12 @@
             </div>
 
             <div id="trailer" class="embed-responsive">
-                <iframe class="embed-responsive-item" width="100%" height="100%" frameborder="0" allowfullscreen=""
-                src=<%= anime.trailer.embed_url%> >
+                <% if(anime.trailer.embed_url) {%>
+                    <iframe class="embed-responsive-item" width="100%" height="100%" frameborder="0" allowfullscreen=""
+                    src=<%= anime.trailer.embed_url%> >
+                <% } else { %>
+                    <div>Trailer Not Found</div>
+                <% } %>
                 </iframe> 
             </div>
 
