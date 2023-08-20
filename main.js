@@ -6,8 +6,10 @@ import { getCurrentSeason } from "./utils/currentSeason.js";
 
 const app = express();
 const port = 3000;
-const API_URL_TOP = "https://api.jikan.moe/v4/top/anime?type=tv&filter=airing";
+let API_URL = "https://api.jikan.moe/v4/top/anime?";
 let animeData;
+let filter = "";
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -27,12 +29,16 @@ function getNames(arr) {
 };
 
 app.get("/", async (req, res) => {
+    console.log(API_URL);
     try{
-        const result = await axios.get(API_URL_TOP);
+        const result = await axios.get(API_URL);
         animeData = result.data.data; //? first .data comes from axios, the other comes from JSON structure
         //console.log(animeData[0]);
 		//console.log(getCurrentSeason());
-        res.render("index.ejs", {season: getCurrentSeason(), animeData: animeData});
+        res.render("index.ejs", {season: getCurrentSeason(),
+            animeData: animeData,
+            filter: filter
+        });
     } catch (error){
         if (error.response) {
             //* The error has a response property, so we can access the data
@@ -62,6 +68,25 @@ app.get("/anime/:mal_id", (req, res) => {
             });
         }
     });
+});
+
+app.post("/submit", (req, res) => {
+    API_URL = "https://api.jikan.moe/v4/top/anime?";
+
+    if(req.body.type != ""){
+        //let type = `type=${req.body.type}`;
+        API_URL += `type=${req.body.type}&`;
+    }
+    if(req.body.filter != ""){
+        //let type = `type=${req.body.filter}`;
+        API_URL += `filter=${req.body.filter}&`;
+        filter = req.body.filter;
+    }
+    if(req.body.ageRating != ""){
+        //let ageRating = `type=${req.body.ageRating}`;
+        API_URL += `rating=${req.body.ageRating}&`;
+    }
+    res.redirect("/");
 });
 
 app.listen(port, () => {
